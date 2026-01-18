@@ -1,0 +1,593 @@
+{
+  "info": {
+    "_postman_id": "af2d9e09-b61d-422c-83a6-8ca575cbb2b6",
+    "name": "MOVIES",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "_exporter_id": "45320696",
+    "_collection_link": "https://go.postman.co/collection/45320696-af2d9e09-b61d-422c-83a6-8ca575cbb2b6?source=collection_link"
+  },
+  "item": [
+    {
+      "name": "signup",
+      "request": {
+        "method": "POST",
+        "header": [],
+        "body": {
+          "mode": "raw",
+          "raw": "{\r\n  \"name\": \"Subham\",\r\n  \"username\": \"subhamkumar\",\r\n  \"email\": \"subham@gmail.com\",\r\n  \"password\": \"12345\",\r\n  \"role\": \"USER\"\r\n}",
+          "options": {
+            "raw": {
+              "language": "json"
+            }
+          }
+        },
+        "url": {
+          "raw": "http://localhost:8080/api/v1/auth/register",
+          "protocol": "http",
+          "host": [
+            "localhost"
+          ],
+          "port": "8080",
+          "path": [
+            "api",
+            "v1",
+            "auth",
+            "register"
+          ]
+        }
+      },
+      "response": []
+    },
+    {
+      "name": "login",
+      "request": {
+        "method": "POST",
+        "header": [],
+        "body": {
+          "mode": "raw",
+          "raw": "{\r\n  \"email\": \"subhamkumar@gmail.com\",\r\n  \"password\": \"12345\"\r\n}",
+          "options": {
+            "raw": {
+              "language": "json"
+            }
+          }
+        },
+        "url": {
+          "raw": "http://localhost:8080/api/v1/auth/login",
+          "protocol": "http",
+          "host": [
+            "localhost"
+          ],
+          "port": "8080",
+          "path": [
+            "api",
+            "v1",
+            "auth",
+            "login"
+          ]
+        }
+      },
+      "response": []
+    },
+    {
+      "name": "add movie",
+      "request": {
+        "auth": {
+          "type": "bearer",
+          "bearer": [
+            {
+              "key": "token",
+              "value": "eyJhbGciOiJIUzI1NiJ9.eyJyb2xlIjpbeyJhdXRob3JpdHkiOiJBRE1JTiJ9XSwic3ViIjoic3ViaGFta3VtYXJAZ21haWwuY29tIiwiaWF0IjoxNzY4NzY0NDMzLCJleHAiOjE3Njg3NjY5MzN9.KgUhwwu0sw-keWzGQCP-NanqA8IxTg_24765-bJjeJA",
+              "type": "string"
+            }
+          ]
+        },
+        "method": "POST",
+        "header": [],
+        "body": {
+          "mode": "formdata",
+          "formdata": [
+            {
+              "key": "file",
+              "type": "file",
+              "uuid": "27f216e0-a41e-42a1-a904-cc6802f73f0e",
+              "src": "/C:/Users/subha/OneDrive/Desktop/3idiots"
+            },
+            {
+              "key": "movieDto",
+              "value": "{\n  \"title\": \"3 Idiots\",\n  \"director\": \"Rajkumar Hirani\",\n  \"studio\": \"Vinod Chopra Films\",\n  \"movieCast\": [\n    \"Aamir Khan\",\n    \"R. Madhavan\",\n    \"Sharman Joshi\",\n    \"Kareena Kapoor\"\n  ],\n  \"releaseYear\": 2009\n}",
+              "type": "text",
+              "uuid": "515dc1c2-e4d7-43d4-8f24-c40c0885e36e"
+            }
+          ]
+        },
+        "url": {
+          "raw": "http://localhost:8080/api/v1/movie/add-movie",
+          "protocol": "http",
+          "host": [
+            "localhost"
+          ],
+          "port": "8080",
+          "path": [
+            "api",
+            "v1",
+            "movie",
+            "add-movie"
+          ]
+        }
+      },
+      "response": []
+    },
+    {
+      "name": "refresh token",
+      "request": {
+        "method": "POST",
+        "header": [],
+        "body": {
+          "mode": "raw",
+          "raw": "{\r\n  \"refreshToken\": \"abe4c57e-1b55-4f8e-90c9-2be334b9110e\"\r\n}",
+          "options": {
+            "raw": {
+              "language": "json"
+            }
+          }
+        },
+        "url": {
+          "raw": "http://localhost:8080/api/v1/auth/refresh",
+          "protocol": "http",
+          "host": [
+            "localhost"
+          ],
+          "port": "8080",
+          "path": [
+            "api",
+            "v1",
+            "auth",
+            "refresh"
+          ]
+        }
+      },
+      "response": []
+    },
+    {
+      "name": "movie by title",
+      "protocolProfileBehavior": {
+        "disableBodyPruning": true
+      },
+      "request": {
+        "auth": {
+          "type": "bearer",
+          "bearer": [
+            {
+              "key": "token",
+              "value": "eyJhbGciOiJIUzI1NiJ9.eyJyb2xlIjpbeyJhdXRob3JpdHkiOiJVU0VSIn1dLCJzdWIiOiJzdWJoYW1AZ21haWwuY29tIiwiaWF0IjoxNzY4NzY1MDU1LCJleHAiOjE3Njg3Njc1NTV9.j5x8tDrYNgbIn60wmK33w9SiDoofFP-hUBFePOpGrNA",
+              "type": "string"
+            }
+          ]
+        },
+        "method": "GET",
+        "header": [],
+        "body": {
+          "mode": "formdata",
+          "formdata": [
+            {
+              "key": "file",
+              "type": "file",
+              "uuid": "27f216e0-a41e-42a1-a904-cc6802f73f0e",
+              "src": "/C:/Users/subha/OneDrive/Desktop/3idiots"
+            },
+            {
+              "key": "movieDto",
+              "value": "{\n  \"title\": \"3 Idiots\",\n  \"director\": \"Rajkumar Hirani\",\n  \"studio\": \"Vinod Chopra Films\",\n  \"movieCast\": [\n    \"Aamir Khan\",\n    \"R. Madhavan\",\n    \"Sharman Joshi\",\n    \"Kareena Kapoor\"\n  ],\n  \"releaseYear\": 2009,\n  \"poster\": \"3idiots\",\n  \"posterUrl\": \"url\"\n}\n",
+              "type": "text",
+              "uuid": "515dc1c2-e4d7-43d4-8f24-c40c0885e36e"
+            }
+          ]
+        },
+        "url": {
+          "raw": "http://localhost:8080/api/v1/movie/3 Idiots",
+          "protocol": "http",
+          "host": [
+            "localhost"
+          ],
+          "port": "8080",
+          "path": [
+            "api",
+            "v1",
+            "movie",
+            "3 Idiots"
+          ]
+        }
+      },
+      "response": []
+    },
+    {
+      "name": "all movies",
+      "protocolProfileBehavior": {
+        "disableBodyPruning": true
+      },
+      "request": {
+        "auth": {
+          "type": "bearer",
+          "bearer": [
+            {
+              "key": "token",
+              "value": "eyJhbGciOiJIUzI1NiJ9.eyJyb2xlIjpbeyJhdXRob3JpdHkiOiJBRE1JTiJ9XSwic3ViIjoic3ViaGFta3VtYXJAZ21haWwuY29tIiwiaWF0IjoxNzY4NzY2NjE1LCJleHAiOjE3Njg3NjkxMTV9.xF-IhjdaQ3a16FR89FOI5AU3L0NsdnW5ZxGhRRX5poI",
+              "type": "string"
+            }
+          ]
+        },
+        "method": "GET",
+        "header": [],
+        "body": {
+          "mode": "formdata",
+          "formdata": [
+            {
+              "key": "file",
+              "type": "file",
+              "uuid": "27f216e0-a41e-42a1-a904-cc6802f73f0e",
+              "src": "/C:/Users/subha/OneDrive/Desktop/3idiots"
+            },
+            {
+              "key": "movieDto",
+              "value": "{\n  \"title\": \"3 Idiots\",\n  \"director\": \"Rajkumar Hirani\",\n  \"studio\": \"Vinod Chopra Films\",\n  \"movieCast\": [\n    \"Aamir Khan\",\n    \"R. Madhavan\",\n    \"Sharman Joshi\",\n    \"Kareena Kapoor\"\n  ],\n  \"releaseYear\": 2009,\n  \"poster\": \"3idiots\",\n  \"posterUrl\": \"url\"\n}\n",
+              "type": "text",
+              "uuid": "515dc1c2-e4d7-43d4-8f24-c40c0885e36e"
+            }
+          ]
+        },
+        "url": {
+          "raw": "http://localhost:8080/api/v1/movie/all",
+          "protocol": "http",
+          "host": [
+            "localhost"
+          ],
+          "port": "8080",
+          "path": [
+            "api",
+            "v1",
+            "movie",
+            "all"
+          ]
+        }
+      },
+      "response": []
+    },
+    {
+      "name": "update movie",
+      "request": {
+        "auth": {
+          "type": "bearer",
+          "bearer": [
+            {
+              "key": "token",
+              "value": "eyJhbGciOiJIUzI1NiJ9.eyJyb2xlIjpbeyJhdXRob3JpdHkiOiJBRE1JTiJ9XSwic3ViIjoic3ViaGFta3VtYXJAZ21haWwuY29tIiwiaWF0IjoxNzY4NzY1ODIwLCJleHAiOjE3Njg3NjgzMjB9.qaBZxzDVoCOhHu1NsspmJ0Wm4IaIO76uKIOuDO87doo",
+              "type": "string"
+            }
+          ]
+        },
+        "method": "PUT",
+        "header": [],
+        "body": {
+          "mode": "formdata",
+          "formdata": [
+            {
+              "key": "file",
+              "type": "file",
+              "uuid": "27f216e0-a41e-42a1-a904-cc6802f73f0e",
+              "src": "/C:/Users/subha/OneDrive/Desktop/3idiots"
+            },
+            {
+              "key": "movieDtoObj",
+              "value": "{\n  \"title\": \"3 Idiots\",\n  \"director\": \"Rajkumar Hirani\",\n  \"studio\": \"Vinod Chopra Films\",\n  \"movieCast\": [\n    \"Aamir Khan\",\n    \"R. Madhavan\",\n    \"Sharman Joshi\",\n    \"Kareena Kapoor\"\n  ],\n  \"releaseYear\": 2009,\n  \"poster\": \"3idiots\",\n  \"posterUrl\": \"url\"\n}\n",
+              "type": "text",
+              "uuid": "515dc1c2-e4d7-43d4-8f24-c40c0885e36e"
+            }
+          ]
+        },
+        "url": {
+          "raw": "http://localhost:8080/api/v1/movie/update/3 Idiots",
+          "protocol": "http",
+          "host": [
+            "localhost"
+          ],
+          "port": "8080",
+          "path": [
+            "api",
+            "v1",
+            "movie",
+            "update",
+            "3 Idiots"
+          ]
+        }
+      },
+      "response": []
+    },
+    {
+      "name": "delete movie by title",
+      "request": {
+        "auth": {
+          "type": "bearer",
+          "bearer": [
+            {
+              "key": "token",
+              "value": "eyJhbGciOiJIUzI1NiJ9.eyJyb2xlIjpbeyJhdXRob3JpdHkiOiJBRE1JTiJ9XSwic3ViIjoic3ViaGFta3VtYXJAZ21haWwuY29tIiwiaWF0IjoxNzY4NzY1Mzc4LCJleHAiOjE3Njg3Njc4Nzh9.cdu8IxTPTVQ4EfDac-XRhLOI2SoO-KM3W3m2BTs9-88",
+              "type": "string"
+            }
+          ]
+        },
+        "method": "DELETE",
+        "header": [],
+        "body": {
+          "mode": "formdata",
+          "formdata": [
+            {
+              "key": "file",
+              "type": "file",
+              "uuid": "27f216e0-a41e-42a1-a904-cc6802f73f0e",
+              "value": null
+            },
+            {
+              "key": "movieDto",
+              "value": "{\n  \"title\": \"3 Idiots\",\n  \"director\": \"Rajkumar Hirani\",\n  \"studio\": \"Vinod Chopra Films\",\n  \"movieCast\": [\n    \"Aamir Khan\",\n    \"R. Madhavan\",\n    \"Sharman Joshi\",\n    \"Kareena Kapoor\"\n  ],\n  \"releaseYear\": 2010,\n  \"poster\": \"3idiots\",\n  \"posterUrl\": \"url\"\n}\n",
+              "type": "text",
+              "uuid": "515dc1c2-e4d7-43d4-8f24-c40c0885e36e"
+            }
+          ]
+        },
+        "url": {
+          "raw": "http://localhost:8080/api/v1/movie/delete/RRR",
+          "protocol": "http",
+          "host": [
+            "localhost"
+          ],
+          "port": "8080",
+          "path": [
+            "api",
+            "v1",
+            "movie",
+            "delete",
+            "RRR"
+          ]
+        }
+      },
+      "response": []
+    },
+    {
+      "name": "pagination",
+      "protocolProfileBehavior": {
+        "disableBodyPruning": true
+      },
+      "request": {
+        "auth": {
+          "type": "bearer",
+          "bearer": [
+            {
+              "key": "token",
+              "value": "eyJhbGciOiJIUzI1NiJ9.eyJyb2xlIjpbeyJhdXRob3JpdHkiOiJVU0VSIn1dLCJzdWIiOiJzdWJoYW1AZ21haWwuY29tIiwiaWF0IjoxNzY4NzY1NTM3LCJleHAiOjE3Njg3NjgwMzd9.hHfy6zRnomxTgldQP2UAGJNKf-LtzOF4USExVGNu-xM",
+              "type": "string"
+            }
+          ]
+        },
+        "method": "GET",
+        "header": [],
+        "body": {
+          "mode": "formdata",
+          "formdata": [
+            {
+              "key": "file",
+              "type": "file",
+              "uuid": "27f216e0-a41e-42a1-a904-cc6802f73f0e",
+              "src": "/C:/Users/subha/OneDrive/Desktop/3idiots"
+            },
+            {
+              "key": "movieDto",
+              "value": "{\n  \"title\": \"3 Idiots\",\n  \"director\": \"Rajkumar Hirani\",\n  \"studio\": \"Vinod Chopra Films\",\n  \"movieCast\": [\n    \"Aamir Khan\",\n    \"R. Madhavan\",\n    \"Sharman Joshi\",\n    \"Kareena Kapoor\"\n  ],\n  \"releaseYear\": 2009\n}",
+              "type": "text",
+              "uuid": "515dc1c2-e4d7-43d4-8f24-c40c0885e36e"
+            }
+          ]
+        },
+        "url": {
+          "raw": "http://localhost:8080/api/v1/movie/allMoviesPage",
+          "protocol": "http",
+          "host": [
+            "localhost"
+          ],
+          "port": "8080",
+          "path": [
+            "api",
+            "v1",
+            "movie",
+            "allMoviesPage"
+          ]
+        }
+      },
+      "response": []
+    },
+    {
+      "name": "pagination with variable page number",
+      "protocolProfileBehavior": {
+        "disableBodyPruning": true
+      },
+      "request": {
+        "auth": {
+          "type": "bearer",
+          "bearer": [
+            {
+              "key": "token",
+              "value": "eyJhbGciOiJIUzI1NiJ9.eyJyb2xlIjpbeyJhdXRob3JpdHkiOiJVU0VSIn1dLCJzdWIiOiJzdWJoYW1AZ21haWwuY29tIiwiaWF0IjoxNzY4NzY1NTM3LCJleHAiOjE3Njg3NjgwMzd9.hHfy6zRnomxTgldQP2UAGJNKf-LtzOF4USExVGNu-xM",
+              "type": "string"
+            }
+          ]
+        },
+        "method": "GET",
+        "header": [],
+        "body": {
+          "mode": "formdata",
+          "formdata": [
+            {
+              "key": "file",
+              "type": "file",
+              "uuid": "27f216e0-a41e-42a1-a904-cc6802f73f0e",
+              "src": "/C:/Users/subha/OneDrive/Desktop/3idiots"
+            },
+            {
+              "key": "movieDto",
+              "value": "{\n  \"title\": \"3 Idiots\",\n  \"director\": \"Rajkumar Hirani\",\n  \"studio\": \"Vinod Chopra Films\",\n  \"movieCast\": [\n    \"Aamir Khan\",\n    \"R. Madhavan\",\n    \"Sharman Joshi\",\n    \"Kareena Kapoor\"\n  ],\n  \"releaseYear\": 2009\n}",
+              "type": "text",
+              "uuid": "515dc1c2-e4d7-43d4-8f24-c40c0885e36e"
+            }
+          ]
+        },
+        "url": {
+          "raw": "http://localhost:8080/api/v1/movie/allMoviesPage?pageNumber=1&pageSize=3",
+          "protocol": "http",
+          "host": [
+            "localhost"
+          ],
+          "port": "8080",
+          "path": [
+            "api",
+            "v1",
+            "movie",
+            "allMoviesPage"
+          ],
+          "query": [
+            {
+              "key": "pageNumber",
+              "value": "1"
+            },
+            {
+              "key": "pageSize",
+              "value": "3"
+            }
+          ]
+        }
+      },
+      "response": []
+    },
+    {
+      "name": "pagination and sorting",
+      "protocolProfileBehavior": {
+        "disableBodyPruning": true
+      },
+      "request": {
+        "auth": {
+          "type": "bearer",
+          "bearer": [
+            {
+              "key": "token",
+              "value": "eyJhbGciOiJIUzI1NiJ9.eyJyb2xlIjpbeyJhdXRob3JpdHkiOiJVU0VSIn1dLCJzdWIiOiJzdWJoYW1AZ21haWwuY29tIiwiaWF0IjoxNzY4NzY1NTM3LCJleHAiOjE3Njg3NjgwMzd9.hHfy6zRnomxTgldQP2UAGJNKf-LtzOF4USExVGNu-xM",
+              "type": "string"
+            }
+          ]
+        },
+        "method": "GET",
+        "header": [],
+        "body": {
+          "mode": "formdata",
+          "formdata": [
+            {
+              "key": "file",
+              "type": "file",
+              "uuid": "27f216e0-a41e-42a1-a904-cc6802f73f0e",
+              "src": "/C:/Users/subha/OneDrive/Desktop/3idiots"
+            },
+            {
+              "key": "movieDto",
+              "value": "{\n  \"title\": \"3 Idiots\",\n  \"director\": \"Rajkumar Hirani\",\n  \"studio\": \"Vinod Chopra Films\",\n  \"movieCast\": [\n    \"Aamir Khan\",\n    \"R. Madhavan\",\n    \"Sharman Joshi\",\n    \"Kareena Kapoor\"\n  ],\n  \"releaseYear\": 2009\n}",
+              "type": "text",
+              "uuid": "515dc1c2-e4d7-43d4-8f24-c40c0885e36e"
+            }
+          ]
+        },
+        "url": {
+          "raw": "http://localhost:8080/api/v1/movie/allMoviesPageSort",
+          "protocol": "http",
+          "host": [
+            "localhost"
+          ],
+          "port": "8080",
+          "path": [
+            "api",
+            "v1",
+            "movie",
+            "allMoviesPageSort"
+          ]
+        }
+      },
+      "response": []
+    },
+    {
+      "name": "pagination and sorting with variable page number",
+      "protocolProfileBehavior": {
+        "disableBodyPruning": true
+      },
+      "request": {
+        "auth": {
+          "type": "bearer",
+          "bearer": [
+            {
+              "key": "token",
+              "value": "eyJhbGciOiJIUzI1NiJ9.eyJyb2xlIjpbeyJhdXRob3JpdHkiOiJVU0VSIn1dLCJzdWIiOiJzdWJoYW1AZ21haWwuY29tIiwiaWF0IjoxNzY4NzY1NTM3LCJleHAiOjE3Njg3NjgwMzd9.hHfy6zRnomxTgldQP2UAGJNKf-LtzOF4USExVGNu-xM",
+              "type": "string"
+            }
+          ]
+        },
+        "method": "GET",
+        "header": [],
+        "body": {
+          "mode": "formdata",
+          "formdata": [
+            {
+              "key": "file",
+              "type": "file",
+              "uuid": "27f216e0-a41e-42a1-a904-cc6802f73f0e",
+              "src": "/C:/Users/subha/OneDrive/Desktop/3idiots"
+            },
+            {
+              "key": "movieDto",
+              "value": "{\n  \"title\": \"3 Idiots\",\n  \"director\": \"Rajkumar Hirani\",\n  \"studio\": \"Vinod Chopra Films\",\n  \"movieCast\": [\n    \"Aamir Khan\",\n    \"R. Madhavan\",\n    \"Sharman Joshi\",\n    \"Kareena Kapoor\"\n  ],\n  \"releaseYear\": 2009\n}",
+              "type": "text",
+              "uuid": "515dc1c2-e4d7-43d4-8f24-c40c0885e36e"
+            }
+          ]
+        },
+        "url": {
+          "raw": "http://localhost:8080/api/v1/movie/allMoviesPageSort?pageNumber=1&pageSize=2&sortBy=releaseYear&dir=desc",
+          "protocol": "http",
+          "host": [
+            "localhost"
+          ],
+          "port": "8080",
+          "path": [
+            "api",
+            "v1",
+            "movie",
+            "allMoviesPageSort"
+          ],
+          "query": [
+            {
+              "key": "pageNumber",
+              "value": "1"
+            },
+            {
+              "key": "pageSize",
+              "value": "2"
+            },
+            {
+              "key": "sortBy",
+              "value": "releaseYear"
+            },
+            {
+              "key": "dir",
+              "value": "desc"
+            }
+          ]
+        }
+      },
+      "response": []
+    }
+  ]
+}
